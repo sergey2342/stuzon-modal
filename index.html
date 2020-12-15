@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="info">?</div>
+
+    <div class="stuzon-modal">
+        <iframe src="https://builder.stuzon.com/stuzon" frameborder="0"></iframe>
+    </div>
+    
+</body>
+</html>
+
+
+<script>
+    const stuzon = document.querySelector('.stuzon-modal')
+    const info = document.querySelector('.info')
+
+    info.addEventListener('click', e => {
+        const target = e.target
+
+        if(!target.classList.contains('active')) {
+            target.classList.add('active')
+            stuzon.style.animation = '1.3s showModalStuzon ease forwards'
+        } else {
+            target.classList.remove('active')
+            stuzon.style.animation = '1.3s hideModalStuzon ease-in-out forwards'
+        }
+    })
+
+</script>
