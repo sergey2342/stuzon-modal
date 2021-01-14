@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -13,7 +14,17 @@
     <div class="info">?</div>
 
     <div class="stuzon-modal">
-        <iframe src="https://builder.stuzon.com/stuzon" frameborder="0"></iframe>
+        <div class="stuzon-modal-bg"></div>
+        <div class="stuzon-modal-content">
+            <div class="stuzon-modal-content-top">
+                <div class="stuzon-modal-content-buttons">
+                    <a href="#" class="stuzon-modal-button info forever active">Больше не показывать</a>
+                    <a href="#" class="stuzon-modal-button info later active">Посмотрю позже</a>
+                </div>
+                <div class="stuzon-modal-button info forawhile active"><i class="fas fa-times"></i></div>
+            </div>
+            <div class="stuzon-modal-iframe"><iframe id="modalframe" src="https://builder.stuzon.com/stuzon"></iframe></div>
+        </div>
     </div>
     
 </body>
@@ -21,18 +32,21 @@
 
 
 <script>
-    const stuzon = document.querySelector('.stuzon-modal')
+    const $modal = document.querySelector('.stuzon-modal')
+    const $modal_content = document.querySelector('.stuzon-modal-content')
     const info = document.querySelector('.info')
 
     info.addEventListener('click', e => {
         const target = e.target
 
         if(!target.classList.contains('active')) {
+            $modal.style.pointerEvents = 'all'
             target.classList.add('active')
-            stuzon.style.animation = '1.3s showModalStuzon ease forwards'
+            $modal_content.style.animation = '1.3s showModalStuzon ease forwards'
         } else {
+            $modal.style.pointerEvents = 'none'
             target.classList.remove('active')
-            stuzon.style.animation = '1.3s hideModalStuzon ease-in-out forwards'
+            $modal_content.style.animation = '1.3s hideModalStuzon ease-in-out forwards'
         }
     })
 
