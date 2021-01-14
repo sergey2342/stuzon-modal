@@ -32,7 +32,6 @@
 
 
 <script>
-    const $modal = document.querySelector('.stuzon-modal')
     const $modal_content = document.querySelector('.stuzon-modal-content')
     const info = document.querySelector('.info')
 
@@ -40,11 +39,9 @@
         const target = e.target
 
         if(!target.classList.contains('active')) {
-            $modal.style.pointerEvents = 'all'
             target.classList.add('active')
             $modal_content.style.animation = '1.3s showModalStuzon ease forwards'
         } else {
-            $modal.style.pointerEvents = 'none'
             target.classList.remove('active')
             $modal_content.style.animation = '1.3s hideModalStuzon ease-in-out forwards'
         }

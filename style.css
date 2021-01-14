@@ -106,6 +106,10 @@
     border: none;
 }
 
+.info.active ~ .stuzon-modal {
+    pointer-events: all;
+}
+
 .info.active ~ .stuzon-modal .stuzon-modal-content {
     animation: 1.3s showModalStuzon ease forwards;
 }
